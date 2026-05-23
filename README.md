@@ -1,4 +1,4 @@
-# Syed Hamzah — Portfolio Website
+# Syed Mohammad Hamzah — Portfolio Website
 
 Personal portfolio website built with HTML, CSS, and JavaScript.
 
