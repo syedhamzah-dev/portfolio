@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Syed Mohammad Hamzah</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,300&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="icon" type="image/jpeg" href="profile.jpg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ═══ NAVBAR ═══ -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <ul class="nav-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            title="Toggle light/dark mode"
+            aria-label="Toggle theme"
+          ></button>
+          <button class="hamburger" id="hamburger" aria-label="Open menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" onclick="closeMenu()">Home</a>
+        <a href="#skills" onclick="closeMenu()">Skills</a>
+        <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#about" onclick="closeMenu()">About</a>
+        <a href="#contact" onclick="closeMenu()">Contact</a>
+      </div>
+    </nav>
+
+    <!-- ═══ MAIN ═══ -->
+    <main>
+      <!-- ── HERO ─────────────────────────────────── -->
+      <section id="hero">
+        <div class="hero-inner">
+          <div class="hero-content">
+            <div class="hero-badge">Available for opportunities</div>
+
+            <h1 class="hero-name">Syed Mohammad<br /><span>Hamzah.</span></h1>
+
+            <!-- UPDATE: change role text if needed -->
+            <p class="hero-title">
+              <span id="typed-text">Aspiring Data Scientist</span>
+              <span class="cursor"></span>
+            </p>
+
+            <!-- UPDATE: edit this bio -->
+            <p class="hero-desc">
+              Passionate about turning raw data into meaningful insights.
+              Currently building strong fundamentals in Python, SQL, and
+              Mathematics on the path toward Machine Learning and Deep Learning.
+            </p>
+
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
+                </svg>
+                View Projects
+              </a>
+              <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+
+            <!-- Social Links — UPDATE hrefs -->
+            <div class="social-row">
+              <a
+                class="social-link"
+                href="https://github.com/syedhamzah-dev"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                  />
+                </svg>
+                GitHub
+              </a>
+              <!-- UPDATE LinkedIn URL -->
+              <a
+                class="social-link"
+                href="https://www.linkedin.com/in/syedmohdhamzah"
+                target="_blank"
+                rel="noopener"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+              <!-- UPDATE email -->
+              <a class="social-link" href="mailto:mohdhamzah1308@gmail.com">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                Email
+              </a>
+              <!-- UPDATE phone — or remove this block for privacy -->
+              <a class="social-link" href="tel:9454592724">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.4a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.35a16 16 0 0 0 6.13 6.13l.93-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92v-.01z"
+                  />
+                </svg>
+                Phone
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-photo-wrap">
+            <img
+              class="hero-photo"
+              src="profile.jpg"
+              alt="Syed Mohammad Hamzah"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SKILLS ────────────────────────────────── -->
+      <section id="skills">
+        <div class="fade-in">
+          <p class="section-label">// Toolkit</p>
+          <h2 class="section-title">Skills & Technologies</h2>
+        </div>
+        <div class="skills-grid">
+          <!-- UPDATE: adjust skill-dot filled count (out of 5) to match your level -->
+          <div class="skill-card fade-in">
+            <div class="skill-icon">🐍</div>
+            <div class="skill-name">Python</div>
+            <div class="skill-desc">
+              Core language for data analysis and scripting
+            </div>
+            <div class="skill-level">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in">
+            <div class="skill-icon">🐼</div>
+            <div class="skill-name">Pandas & NumPy</div>
+            <div class="skill-desc">
+              Data manipulation, cleaning, and numerical computing
+            </div>
+            <div class="skill-level">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in">
+            <div class="skill-icon">📊</div>
+            <div class="skill-name">Matplotlib & Seaborn</div>
+            <div class="skill-desc">
+              Data visualization and statistical graphics
+            </div>
+            <div class="skill-level">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in">
+            <div class="skill-icon">🗄️</div>
+            <div class="skill-name">SQL (MySQL)</div>
+            <div class="skill-desc">Database querying, joins, aggregations</div>
+            <div class="skill-level">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in">
+            <div class="skill-icon">📈</div>
+            <div class="skill-name">Power BI</div>
+            <div class="skill-desc">
+              Interactive dashboards and business reporting
+            </div>
+            <div class="skill-level">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in">
+            <div class="skill-icon">📐</div>
+            <div class="skill-name">Mathematics</div>
+            <div class="skill-desc">
+              Statistics, linear algebra — actively studying
+            </div>
+            <div class="skill-level">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+            </div>
+          </div>
+
+          <div class="skill-card fade-in">
+            <div class="skill-icon">🌐</div>
+            <div class="skill-name">HTML / CSS / JS</div>
+            <div class="skill-desc">
+              Basic front-end development and data viz on the web
+            </div>
+            <div class="skill-level">
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot filled"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+            </div>
+          </div>
+
+          <div
+            class="skill-card fade-in"
+            style="border-style: dashed; opacity: 0.6"
+          >
+            <div class="skill-icon">🤖</div>
+            <div class="skill-name">ML / DL</div>
+            <div class="skill-desc">
+              Next milestone — scikit-learn, TensorFlow, PyTorch
+            </div>
+            <div class="skill-level">
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+              <div class="skill-dot"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── PROJECTS ───────────────────────────────── -->
+      <section id="projects">
+        <div class="fade-in">
+          <p class="section-label">// Work</p>
+          <h2 class="section-title">Projects</h2>
+        </div>
+        <div class="projects-grid">
+          <!-- PROJECT 1 — UPDATE description/tags if needed -->
+          <div class="project-card fade-in">
+            <div class="project-num">01 / DATA ANALYSIS</div>
+            <h3 class="project-title">Gurgaon Real Estate Analysis</h3>
+            <p class="project-desc">
+              End-to-end analysis of Gurgaon property data — data cleaning with
+              Pandas, followed by exploratory analysis and rich visual
+              storytelling using Matplotlib and Seaborn to uncover pricing
+              trends and locality insights.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Pandas</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">Seaborn</span>
+              <span class="tag">EDA</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/syedhamzah-dev/gurgaon-real-estate-analysis"
+              target="_blank"
+              rel="noopener"
+            >
+              View on GitHub
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- PROJECT 2 — UPDATE description/tags if needed -->
+          <div class="project-card fade-in">
+            <div class="project-num">02 / DATA ANALYSIS + DASHBOARD</div>
+            <h3 class="project-title">Customer Behaviour Analysis</h3>
+            <p class="project-desc">
+              Analysed shopping behaviour from a sample dataset using Python for
+              preprocessing and MySQL for querying. Built an interactive Power
+              BI dashboard revealing purchasing patterns, revenue insights, and
+              top product performance.
+            </p>
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">SQL</span>
+              <span class="tag">Power BI</span>
+              <span class="tag">Dashboard</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://github.com/syedhamzah-dev/customer_behaviour_analysis"
+              target="_blank"
+              rel="noopener"
+            >
+              View on GitHub
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- PROJECT 3 — UPDATE description/tags if needed -->
+          <div class="project-card fade-in">
+            <div class="project-num">03 / WEB VISUALIZATION</div>
+            <div class="practice-badge">✦ Practice Project</div>
+            <h3 class="project-title">Interactive Data Viz Website</h3>
+            <p class="project-desc">
+              A small front-end data visualization site built with HTML, CSS,
+              and vanilla JavaScript. Created to explore browser-based charting
+              and practice DOM manipulation with dynamic data rendering.
+            </p>
+            <div class="project-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Data Viz</span>
+            </div>
+            <a
+              class="project-link"
+              href="https://idyllic-biscochitos-96f0a4.netlify.app/"
+              target="_blank"
+              rel="noopener"
+            >
+              Live Demo
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- TO ADD PROJECT 4:
+          Copy one of the project-card blocks above,
+          paste it here, and update the number, title,
+          description, tags and href link.
+        --></div>
+      </section>
+
+      <!-- ── ABOUT ──────────────────────────────────── -->
+      <section id="about">
+        <div class="fade-in">
+          <p class="section-label">// About Me</p>
+          <h2 class="section-title">The Journey</h2>
+        </div>
+        <div class="about-grid fade-in">
+          <!-- UPDATE: rewrite in your own words -->
+          <div class="about-text">
+            <p>
+              I'm <strong>Syed Mohammad Hamzah</strong>, an aspiring data
+              scientist based in India, passionate about extracting stories from
+              data. My journey started with Python — learning how a few lines of
+              code could process thousands of rows in seconds.
+            </p>
+            <p>
+              I've built a solid foundation in
+              <strong>data analysis and visualization</strong>, completed
+              real-world projects on real estate and e-commerce data, and am
+              currently deepening my understanding of the
+              <strong>mathematics</strong>
+              behind machine learning.
+            </p>
+            <p>
+              My goal is to move into
+              <strong>Machine Learning and Deep Learning</strong>, building
+              models that solve meaningful problems — not just run on textbook
+              datasets.
+            </p>
+          </div>
+
+          <!-- Roadmap — mark done/current/upcoming by changing CSS class -->
+          <div>
+            <p class="section-label" style="margin-bottom: 20px">
+              // Learning Roadmap
+            </p>
+            <div class="roadmap">
+              <div class="roadmap-item">
+                <div class="roadmap-dot done">
+                  <div class="roadmap-dot-inner"></div>
+                </div>
+                <div>
+                  <div class="roadmap-content-title">Python, Pandas, NumPy</div>
+                  <div class="roadmap-content-sub">Completed ✓</div>
+                </div>
+              </div>
+
+              <div class="roadmap-item">
+                <div class="roadmap-dot done">
+                  <div class="roadmap-dot-inner"></div>
+                </div>
+                <div>
+                  <div class="roadmap-content-title">Data Visualization</div>
+                  <div class="roadmap-content-sub">
+                    Matplotlib, Seaborn, Power BI ✓
+                  </div>
+                </div>
+              </div>
+
+              <div class="roadmap-item">
+                <div class="roadmap-dot done">
+                  <div class="roadmap-dot-inner"></div>
+                </div>
+                <div>
+                  <div class="roadmap-content-title">SQL (MySQL)</div>
+                  <div class="roadmap-content-sub">Completed ✓</div>
+                </div>
+              </div>
+
+              <div class="roadmap-item">
+                <div class="roadmap-dot current">
+                  <div class="roadmap-dot-inner"></div>
+                </div>
+                <div>
+                  <div class="roadmap-content-title">Mathematics for ML</div>
+                  <div class="roadmap-content-sub">Currently studying →</div>
+                </div>
+              </div>
+
+              <div class="roadmap-item">
+                <div class="roadmap-dot">
+                  <div class="roadmap-dot-inner"></div>
+                </div>
+                <div>
+                  <div class="roadmap-content-title">Machine Learning</div>
+                  <div class="roadmap-content-sub">scikit-learn — upcoming</div>
+                </div>
+              </div>
+
+              <div class="roadmap-item">
+                <div class="roadmap-dot">
+                  <div class="roadmap-dot-inner"></div>
+                </div>
+                <div>
+                  <div class="roadmap-content-title">Deep Learning</div>
+                  <div class="roadmap-content-sub">
+                    TensorFlow / PyTorch — future
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CONTACT ────────────────────────────────── -->
+      <section id="contact">
+        <div class="fade-in">
+          <p class="section-label">// Let's Connect</p>
+          <h2 class="section-title">Get in Touch</h2>
+        </div>
+        <div class="contact-grid fade-in">
+          <!-- UPDATE all href values and display text -->
+          <a class="contact-card" href="mailto:mohdhamzah1308@gmail.com">
+            <div class="contact-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--accent)"
+                stroke-width="2"
+              >
+                <rect width="20" height="16" x="2" y="4" rx="2" />
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">mohdhamzah1308@gmail.com</div>
+            </div>
+          </a>
+
+          <a
+            class="contact-card"
+            href="https://linkedin.com/in/syedmohdhamzah"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="contact-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="var(--accent)"
+              >
+                <path
+                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">linkedin.com/in/syedmohdhamzah</div>
+            </div>
+          </a>
+
+          <a
+            class="contact-card"
+            href="https://github.com/syedhamzah-dev"
+            target="_blank"
+            rel="noopener"
+          >
+            <div class="contact-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="var(--accent)"
+              >
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">GitHub</div>
+              <div class="contact-value">github.com/syedhamzah-dev</div>
+            </div>
+          </a>
+
+          <a class="contact-card" href="tel:9454592724">
+            <div class="contact-icon">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="var(--accent)"
+                stroke-width="2"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.4a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.7h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.35a16 16 0 0 0 6.13 6.13l.93-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92v-.01z"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+91 94545 92724</div>
+            </div>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+      <div class="footer-inner">
+        <!-- UPDATE year if needed -->
+        <span class="footer-copy"
+          >© 2025 Syed Mohammad Hamzah · Built with HTML/CSS/JS</span
+        >
+        <div class="footer-links">
+          <a
+            href="https://github.com/syedhamzah-dev"
+            target="_blank"
+            rel="noopener"
+            >GitHub</a
+          >
+          <a
+            href="https://linkedin.com/in/syedmohdhamzah"
+            target="_blank"
+            rel="noopener"
+            >LinkedIn</a
+          >
+          <a href="mailto:mohdhamzah1308@gmail.com">Email</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
