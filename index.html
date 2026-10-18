@@ -24,6 +24,7 @@
         <ul class="nav-links">
           <li><a href="#hero">Home</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#learning">Learning</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
@@ -43,6 +44,7 @@
       <div class="mobile-menu" id="mobileMenu">
         <a href="#hero" onclick="closeMenu()">Home</a>
         <a href="#skills" onclick="closeMenu()">Skills</a>
+        <a href="#learning" onclick="closeMenu()">Learning</a>
         <a href="#projects" onclick="closeMenu()">Projects</a>
         <a href="#about" onclick="closeMenu()">About</a>
         <a href="#contact" onclick="closeMenu()">Contact</a>
@@ -302,6 +304,21 @@
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- ── LEARNING JOURNEY ───────────────────────────── -->
+      <section id="learning">
+        <div class="fade-in">
+          <p class="section-label">// Current Focus</p>
+          <h2 class="section-title">Learning Journey</h2>
+          <p class="learning-lead" id="learning-lead">
+            Having built a solid foundation in Python, data analysis, and relational databases,
+            I am currently dedicating my primary focus to mastering Machine Learning algorithms,
+            statistical modeling, and predictive workflows.
+          </p>
+        </div>
+        <!-- Rendered dynamically from data.js -->
+        <div class="learning-tracks-grid" id="learning-tracks"></div>
       </section>
 
       <!-- ── PROJECTS ───────────────────────────────── -->
@@ -658,6 +675,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="data.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
