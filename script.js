@@ -225,10 +225,65 @@ function setupProjectFilters() {
 }
 
 
+// ─── Render Certifications (4 Items Grid) ────────
+function renderCertificates() {
+  const container = document.getElementById('certificates-container');
+  if (!container || typeof PORTFOLIO_DATA === 'undefined') return;
+
+  const certs = PORTFOLIO_DATA.certificates;
+
+  container.innerHTML = certs.map(c => {
+    const hasUrl = isValidUrl(c.url);
+
+    let actionHtml = '';
+    if (hasUrl) {
+      actionHtml = `
+        <a class="btn-project-action primary" href="${escapeHtml(c.url)}" target="_blank" rel="noopener noreferrer">
+          View Certificate
+          ${ICONS.externalLink}
+        </a>
+      `;
+    } else {
+      actionHtml = `
+        <span class="btn-project-action disabled-pill" title="Certificate URL can be added in data.js">
+          📄 Certificate Link Pending in data.js
+        </span>
+      `;
+    }
+
+    const dateHtml = c.issueDate ? `<span>·</span><span>📅 ${escapeHtml(c.issueDate)}</span>` : '';
+
+    return `
+      <div class="certificate-card fade-in" id="cert-${escapeHtml(c.id)}">
+        <div class="certificate-card-top">
+          <div class="certificate-icon-badge">${ICONS.certificate}</div>
+          <span class="certificate-pill">${escapeHtml(c.badge || 'Verified')}</span>
+        </div>
+
+        <div class="certificate-number">${escapeHtml(c.number)} / CERTIFICATION</div>
+        <h3 class="certificate-title">${escapeHtml(c.title)}</h3>
+
+        <div class="certificate-meta">
+          <span>🏢 ${escapeHtml(c.issuer)}</span>
+          ${dateHtml}
+        </div>
+
+        <div class="certificate-actions">
+          ${actionHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  observeFadeElements();
+}
+
+
 // ─── Initialize Learning Journey on DOM Ready ─────
 document.addEventListener('DOMContentLoaded', () => {
   renderLearningJourney();
   renderProjects('all');
+  renderCertificates();
   setupFilterButtons();
   document.querySelectorAll('#learning .fade-in').forEach(el => fadeObserver.observe(el));
 });

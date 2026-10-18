@@ -26,6 +26,7 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#learning">Learning</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -46,6 +47,7 @@
         <a href="#skills" onclick="closeMenu()">Skills</a>
         <a href="#learning" onclick="closeMenu()">Learning</a>
         <a href="#projects" onclick="closeMenu()">Projects</a>
+        <a href="#certifications" onclick="closeMenu()">Certifications</a>
         <a href="#about" onclick="closeMenu()">About</a>
         <a href="#contact" onclick="closeMenu()">Contact</a>
       </div>
@@ -342,6 +344,27 @@
       </section>
 
       
+
+      <!-- ── CERTIFICATIONS ─────────────────────────── -->
+      <section id="certifications">
+        <div class="fade-in">
+          <p class="section-label">// Credentials & Qualifications</p>
+          <h2 class="section-title">Certifications</h2>
+        </div>
+        <!-- Rendered dynamically from data.js -->
+        <div class="certificates-grid" id="certificates-container"></div>
+
+        <div class="cert-instruction-note fade-in" id="cert-info">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <div>
+            <strong>Certificate Information:</strong> All certificate titles, issuing organizations, and URLs can be managed in <code>data.js</code>. When adding certificate links (such as Google Drive URLs), set sharing permissions to <em>"Anyone with the link can view"</em>.
+          </div>
+        </div>
+      </section>
 
       <!-- ── ABOUT ──────────────────────────────────── -->
       <section id="about">
