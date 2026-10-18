@@ -129,8 +129,106 @@ function renderLearningJourney() {
 
 
 
+// ─── Render Projects (Compact, 2-3 Sentences) ────
+function renderProjects(filter = 'all') {
+  const container = document.getElementById('projects-container');
+  if (!container || typeof PORTFOLIO_DATA === 'undefined') return;
+
+  const allProjects = PORTFOLIO_DATA.projects;
+  const filtered = allProjects.filter(p => {
+    if (filter === 'all') return true;
+    if (filter === 'featured') return p.isHighlighted || p.filterGroup === 'featured';
+    if (filter === 'analysis') return p.filterGroup === 'analysis';
+    if (filter === 'practice') return p.isPractice || p.filterGroup === 'practice';
+    return true;
+  });
+
+  container.innerHTML = filtered.map(p => {
+    // Badges in Header
+    let badgesHtml = '';
+    if (p.achievementBadge) {
+      badgesHtml += `<span class="award-badge">${escapeHtml(p.achievementBadge)}</span>`;
+    }
+    if (p.challengeBadge) {
+      badgesHtml += `<span class="challenge-badge">${escapeHtml(p.challengeBadge)}</span>`;
+    }
+    if (p.isPractice) {
+      badgesHtml += `<span class="practice-badge">✦ Practice Project</span>`;
+    }
+
+    // Technology Tags
+    const tagsHtml = (p.technologies && p.technologies.length) ? `
+      <div class="project-tags">
+        ${p.technologies.map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}
+      </div>
+    ` : '';
+
+    // Action Buttons
+    let actionsHtml = '';
+    // 1. Live demo
+    if (isValidUrl(p.liveDemoUrl)) {
+      actionsHtml += `
+        <a class="btn-project-action primary" href="${escapeHtml(p.liveDemoUrl)}" target="_blank" rel="noopener noreferrer">
+          ${escapeHtml(p.liveDemoLabel || 'Live Demo')}
+          ${ICONS.externalLink}
+        </a>
+      `;
+    }
+
+    // 2. GitHub
+    if (isValidUrl(p.githubUrl)) {
+      actionsHtml += `
+        <a class="btn-project-action secondary" href="${escapeHtml(p.githubUrl)}" target="_blank" rel="noopener noreferrer">
+          ${ICONS.github}
+          ${escapeHtml(p.githubLabel || 'View on GitHub')}
+          ${ICONS.externalLink}
+        </a>
+      `;
+    }
+
+    return `
+      <div class="project-card fade-in" id="project-${escapeHtml(p.id)}">
+        <div class="project-card-header">
+          <div class="project-num">${escapeHtml(p.projectNumber)} / ${escapeHtml(p.category)}</div>
+          <div class="project-card-badges">${badgesHtml}</div>
+        </div>
+
+        <h3 class="project-title">${escapeHtml(p.title)}</h3>
+        ${p.subtitle ? `<div class="project-card-subtitle">${escapeHtml(p.subtitle)}</div>` : ''}
+
+        <p class="project-desc">${escapeHtml(p.description)}</p>
+
+        ${tagsHtml}
+
+        <div class="project-actions-row">
+          ${actionsHtml}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  observeFadeElements();
+}
+
+
+// ─── Setup Project Filter Buttons ────────────────
+function setupProjectFilters() {
+  const pills = document.querySelectorAll('.filter-pill');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.getAttribute('data-filter') || 'all';
+      renderProjects(filter);
+    });
+  });
+}
+
+
 // ─── Initialize Learning Journey on DOM Ready ─────
 document.addEventListener('DOMContentLoaded', () => {
   renderLearningJourney();
+  renderProjects('all');
+  setupFilterButtons();
   document.querySelectorAll('#learning .fade-in').forEach(el => fadeObserver.observe(el));
 });
