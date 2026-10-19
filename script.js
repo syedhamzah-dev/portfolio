@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   script.js — Syed Hamzah Portfolio
+   script.js — Syed Mohammad Hamzah Portfolio
    ═══════════════════════════════════════════════ */
 
 // ─── Theme Toggle ────────────────────────────────
@@ -10,50 +10,46 @@ const html        = document.documentElement;
 const savedTheme = localStorage.getItem('theme') || 'dark';
 html.setAttribute('data-theme', savedTheme);
 
-themeToggle.addEventListener('click', () => {
-  const current = html.getAttribute('data-theme');
-  const next    = current === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', next);
-  localStorage.setItem('theme', next);
-});
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const current = html.getAttribute('data-theme');
+    const next    = current === 'dark' ? 'light' : 'dark';
+    html.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+}
 
 // ─── Mobile Menu ─────────────────────────────────
 const hamburger  = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 let menuOpen     = false;
 
-hamburger.addEventListener('click', () => {
-  menuOpen = !menuOpen;
-  mobileMenu.classList.toggle('open', menuOpen);
-});
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenu.classList.toggle('open', menuOpen);
+  });
+}
 
 // Close menu when a mobile nav link is tapped
 function closeMenu() {
   menuOpen = false;
-  mobileMenu.classList.remove('open');
+  if (mobileMenu) {
+    mobileMenu.classList.remove('open');
+  }
 }
 
-// ─── Scroll Fade-In ──────────────────────────────
+// ─── Scroll Fade-In Observer ─────────────────────
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.08 });
 
-document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
-
-
-// ─── Simple HTML Escaper ─────────────────────────
-function escapeHtml(str) {
-  if (!str) return '';
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+function observeFadeElements() {
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => fadeObserver.observe(el));
 }
 
 // ─── Safe URL Helper ─────────────────────────────
@@ -126,8 +122,6 @@ function renderLearningJourney() {
     `;
   }).join('');
 }
-
-
 
 // ─── Render Projects (Compact, 2-3 Sentences) ────
 function renderProjects(filter = 'all') {
@@ -210,21 +204,6 @@ function renderProjects(filter = 'all') {
   observeFadeElements();
 }
 
-
-// ─── Setup Project Filter Buttons ────────────────
-function setupProjectFilters() {
-  const pills = document.querySelectorAll('.filter-pill');
-  pills.forEach(pill => {
-    pill.addEventListener('click', () => {
-      pills.forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      const filter = pill.getAttribute('data-filter') || 'all';
-      renderProjects(filter);
-    });
-  });
-}
-
-
 // ─── Render Certifications (4 Items Grid) ────────
 function renderCertificates() {
   const container = document.getElementById('certificates-container');
@@ -278,12 +257,105 @@ function renderCertificates() {
   observeFadeElements();
 }
 
+// ─── Render Resume / CV ──────────────────────────
+function renderResume() {
+  if (typeof PORTFOLIO_DATA === 'undefined' || !PORTFOLIO_DATA.resume) return;
+  const resume = PORTFOLIO_DATA.resume;
 
-// ─── Initialize Learning Journey on DOM Ready ─────
+  const leadEl     = document.getElementById('resume-lead');
+  const noteEl     = document.getElementById('resume-note');
+  const viewBtn    = document.getElementById('btn-view-resume');
+  const downloadBtn= document.getElementById('btn-download-resume');
+
+  if (leadEl && resume.leadText) {
+    leadEl.textContent = resume.leadText;
+  }
+  if (noteEl && resume.note) {
+    noteEl.innerHTML = `<span>📄 Target file: <code>${escapeHtml(resume.filePath)}</code> (single-file replacement)</span>`;
+  }
+  if (viewBtn) {
+    viewBtn.setAttribute('href', resume.filePath);
+  }
+  if (downloadBtn) {
+    downloadBtn.setAttribute('href', resume.filePath);
+    downloadBtn.setAttribute('download', resume.downloadName || 'Syed_Mohammad_Hamzah_Resume.pdf');
+  }
+}
+
+// ─── Setup Project Filter Buttons ────────────────
+function setupProjectFilters() {
+  const pills = document.querySelectorAll('.filter-pill');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.getAttribute('data-filter') || 'all';
+      renderProjects(filter);
+    });
+  });
+}
+
+// ─── Simple HTML Escaper ─────────────────────────
+function escapeHtml(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+// ─── Optional Typing Text Cycling ────────────────
+function setupTypedRoles() {
+  const el = document.getElementById('typed-text');
+  if (!el) return;
+
+  const roles = [
+    "Aspiring Data Scientist",
+    "Machine Learning Focus",
+    "Data Science Intern · Best Project Award"
+  ];
+  let roleIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  let delay = 120;
+
+  function type() {
+    const currentRole = roles[roleIdx];
+    if (isDeleting) {
+      el.textContent = currentRole.substring(0, charIdx - 1);
+      charIdx--;
+      delay = 50;
+    } else {
+      el.textContent = currentRole.substring(0, charIdx + 1);
+      charIdx++;
+      delay = 100;
+    }
+
+    if (!isDeleting && charIdx === currentRole.length) {
+      delay = 2200; // Pause at end of phrase
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+      delay = 500;
+    }
+
+    setTimeout(type, delay);
+  }
+
+  // Start typing after initial load
+  setTimeout(type, 1500);
+}
+
+// ─── Initialize on DOM Ready ─────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   renderLearningJourney();
   renderProjects('all');
   renderCertificates();
-  setupFilterButtons();
-  document.querySelectorAll('#learning .fade-in').forEach(el => fadeObserver.observe(el));
+  renderResume();
+  setupProjectFilters();
+  setupTypedRoles();
+  observeFadeElements();
 });
