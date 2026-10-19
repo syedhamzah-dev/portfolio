@@ -123,7 +123,7 @@ const PORTFOLIO_DATA = {
       challengeBadge: "⚡ 60 Days Claude AI Challenge",
       // Concise 2-3 sentence summary:
       description:
-        "An interactive data dashboard built as a 10-day capstone for the 60 Days Claude AI Challenge, ranking ~193 nations on how efficiently healthcare expenditure translates into life expectancy. Using World Bank Open Data, it computes a transparent percentile-based Efficiency Index and visualizes global spending trends through interactive Plotly scatter plots and outlier spotlights.",
+        "An interactive healthcare analytics dashboard developed during the 60 Days Claude AI Challenge, ranking ~193 nations on how efficiently healthcare expenditure translates into life expectancy. Using World Bank Open Data, it computes a transparent percentile-based Efficiency Index and visualizes global spending trends through interactive Plotly scatter plots and outlier spotlights.",
       technologies: ["Python", "Streamlit", "Pandas", "Plotly", "pytest"],
       githubUrl: "https://github.com/syedhamzah-dev/Claude-AI-Challenge",
       githubLabel: "View Challenge Repository",
