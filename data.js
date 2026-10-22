@@ -189,8 +189,8 @@ const PORTFOLIO_DATA = {
       title: "Claude AI — 60 Days Challenge",
       issuer: "AB Talks / Claude AI Challenge",
       badge: "60-Day Intensive",
-      issueDate: null, // e.g. "2024" (add your certificate issue date if printed)
-      url: null // Paste your certificate link or Google Drive URL here
+      issueDate: "30 Jul 2026", // e.g. "2024" (add your certificate issue date if printed)
+      url: "https://drive.google.com/file/d/1QmxCud3UPEH7v6-Louro6YAOIWXGBmIp/view?usp=sharing" // Paste your certificate link or Google Drive URL here
     },
     {
       id: "cert-sipher",
@@ -198,8 +198,8 @@ const PORTFOLIO_DATA = {
       title: "Data Science In-house Internship/Training — Sipher Web Pvt. Ltd.",
       issuer: "Sipher Web Pvt. Ltd.",
       badge: "Best Project Award",
-      issueDate: null,
-      url: null
+      issueDate: "25 Jul 2026",
+      url: "https://drive.google.com/file/d/13S9s1gEVSIBTioCylLukS7_8jj8ojdhE/view?usp=sharing"
     },
     {
       id: "cert-iu-da",
@@ -207,8 +207,8 @@ const PORTFOLIO_DATA = {
       title: "Data Analytics — Integral University",
       issuer: "Integral University",
       badge: "Academic Certification",
-      issueDate: null,
-      url: null
+      issueDate: "30 Aug 2025",
+      url: "https://drive.google.com/file/d/1lKen8jd_CWmZaxlB9nbtEAXcdmH8kzd5/view?usp=sharing"
     },
     {
       id: "cert-iu-linux",
@@ -216,8 +216,8 @@ const PORTFOLIO_DATA = {
       title: "Linux Programming — Integral University",
       issuer: "Integral University",
       badge: "Academic Certification",
-      issueDate: null,
-      url: null
+      issueDate: "",
+      url: "https://drive.google.com/file/d/1lvQrAufryQIBcwagmPX-xPa07epZ6_A_/view?usp=sharing"
     }
   ]
 };
