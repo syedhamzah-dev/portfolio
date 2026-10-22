@@ -181,7 +181,7 @@ const PORTFOLIO_DATA = {
   // ─────────────────────────────────────────────────────────────────
   // 4. CERTIFICATIONS DATA (4 CREDENTIALS)
   // ─────────────────────────────────────────────────────────────────
-  // Edit titles, issuing organizations, dates, or URLs directly here.
+  
   certificates: [
     {
       id: "cert-claude",
